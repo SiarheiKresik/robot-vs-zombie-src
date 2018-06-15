@@ -1,0 +1,53 @@
+[
+    {
+      "compound": "water",
+      "inner": "H<sub>2</sub>O",
+      "innerDiv": "<div>H<sub>2</sub>O</div>"
+    },
+    {
+      "compound": "carbon dioxide",
+      "inner":"CO<sub>2</sub>",
+      "innerDiv": "<div>CO<sub>2</sub></div>"
+    },
+    {
+      "compound": "oxygen",
+      "inner": "O<sub>2</sub>",
+      "innerDiv": "<div>O<sub>2</sub></div>"
+    },
+    {
+      "compound": "sodium chloride",
+      "inner": "NaCl",
+      "innerDiv": "<div>NaCl</div>"
+    },
+    {
+      "compound": "nitrogen",
+      "inner": "N<sub>2</sub>",
+      "innerDiv": "<div>N<sub>2</sub></div>"
+    },
+    {
+      "compound": "hydrogen",
+      "inner": "H<sub>2</sub>",
+      "innerDiv": "<div>H<sub>2</sub></div>"
+    },
+    {
+      "compound": "sulfuric acid",
+      "inner": "H<sub>2</sub>SO<sub>4</sub>",
+      "innerDiv": "<div>H<sub>2</sub>SO<sub>4</sub></div>"
+    },
+    {
+      "compound": "potassium chloride",
+      "inner": "KCl",
+      "innerDiv": "<div>KCL</div>"
+    },
+    {
+      "compound": "carbon monoxide",
+      "inner": "CO",
+      "innerDiv": "<div>CO</div>"
+    },
+    {
+      "compound": "ammonia",
+      "inner": "NH<sub>3</sub>",
+      "innerDiv": "<div>NH<sub>3</sub></div>"
+    }
+]
+    

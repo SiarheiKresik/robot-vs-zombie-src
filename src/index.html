@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game</title>
+</head>
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <p>Loading, please wait</p>
+        <div class="spinner-wrap">
+            <div class="spinner-ring"></div>
+        </div>
+    </div>
+    <div class="main-menu" id="main-menu">
+        <img src="./img/html_img/robot.png" alt="">
+        <div class="menu">
+            <div class="logo">Robot VS Zombie</div>           
+            <p>Enter your name and start the fight!</p>            
+            <input type="text" id="player-name" placeholder="Name" required>
+            <button class="button" id="play-button">PLAY</button>
+        </div> 
+        <img src="./img/html_img/zombie.png" alt="">       
+    </div>
+    <div class="game-field hidden" id="game-field">
+        <div class="main-game-field">
+            <div class="menu-button" id="menu-button">
+                <img src="./img/html_img/menu.png" alt="menu">
+            </div>
+            <div class="canvas-field">
+                <div class="sound-manage">
+                    <div class="music-button" id="music-button"></div>
+                    <div class="sound-button" id="sound-button"></div>
+                </div>
+                <canvas id="game"></canvas>
+            </div>            
+            <div class="records-button" id="records-button">
+                <img src="./img/html_img/records.png" alt="records">
+            </div>
+        </div>
+        <div class="attack-button" id="attack">
+            <img src="./img/html_img/attack-button.png" alt="attack">
+        </div>
+    </div> 
+    <div class="mini-game-field hidden" id="mini-game-field">        
+        <div class="math-game hidden" id='math-game'>
+            <div class="operand" id="first-operand"></div>
+            <div class="operator" id="operator"></div>
+            <div class="operand" id="second-operand" class="operand"></div>
+            <div class="operator">=</div>
+            <input id="math-game-answer" type="text" maxlength="5" required>
+            <button class="button" id="accept-math-game-answer">Solved!</button>       
+        </div>
+        <div class="lingua-game hidden" id="lingua-game">
+            <p>Translate the word!</p>
+            <div class="word" id="lingua-game-word"></div>
+            <div class="word-translate">
+                <input id="lingua-game-answer" type="text" placeholder="Answer" required>
+            </div>            
+            <button class="button" id="accept-lingua-game-answer">Solved!</button>
+        </div>
+        <div class="drag-game hidden" id="drag-game">
+            <div class="mixed-word" id="mixed-word">
+                <div class="dropzone">
+                    <div draggable="true"></div>
+                </div>
+                <div class="dropzone">
+                        <div draggable="true"></div>
+                </div>
+                <div class="dropzone">
+                        <div draggable="true"></div>
+                </div>
+                <div class="dropzone">
+                        <div draggable="true"></div>
+                </div>
+                <div class="dropzone">
+                        <div draggable="true"></div>
+                </div>
+            </div>
+            <p>
+                Above you see a mixed word. Drag these letters down in the correct 
+                sequence to get the right word:
+            </p>
+            <div class="correct-word" id="correct-word">
+                <div class="dropzone"></div>
+                <div class="dropzone"></div>
+                <div class="dropzone"></div>
+                <div class="dropzone"></div>
+                <div class="dropzone"></div>
+            </div>
+            <button class="button" id="accept-drag-game-answer">Solved!</button>       
+        </div>
+        <div class="listening-game hidden" id="listening-game">
+            <p>
+                Press "Play word" button, listen word and wrtite 
+                down what you will hear:            
+            </p>
+            <button class="button" id="play-listening-game">Play word</button>
+            <input id="listening-game-answer" type="text" placeholder="Answer" required>            
+            <button class="button" id="accept-listening-game-answer">Accept answer</button>
+        </div>
+        <div class="chem-game hidden" id="chem-game">
+            <p>Choose formula of this element:</p>
+            <div class="chem-compound" id="chem-compound"></div>
+            <div class="chem-formulas" id="chem-formulas"></div>            
+            <button class="button" id="accept-chem-game-answer">Solved!</button>
+        </div>
+        <div class="irr-verbs-game hidden" id="irr-verbs-game">
+            <p>Fill the gap with the correct form of the verb!</p>
+            <div class="verbs" id="verbs-div"></div>
+            <button class="button" id="accept-irr-verbs-game-answer">Solved!</button>            
+        </div>
+        <div class="flags-game hidden" id="flags-game">
+            <p>Choose flag of this element:</p>
+            <div class="flag-name" id="flag-name"></div>
+            <div class="flags" id="flags"></div>            
+            <button class="button" id="accept-flags-game-answer">Solved!</button>
+        </div>
+        <div class="capitals-game hidden" id="capitals-game">
+            <p>Write down capital of this country:</p>
+            <div id="capitals-flag"></div>            
+            <div class="capitals-country" id="capitals-country">Brazil</div>                              
+            <input id="capitals-game-answer" type="text" placeholder="Answer" required>
+            <button class="button" id="accept-capitals-game-answer">Solved!</button>
+        </div>
+        <div class="hidden-words-game hidden" id="hidden-words-game">
+            <p>Find six words hidden in this puzzle:</p>
+            <div class="hidden-words-img" id="hidden-words-img"></div>
+            <div class="hidden-words-answers" id="hidden-words-answers">
+                <input class="hidden-game-answer1" id="hidden-game-answer1" type="text" required>
+                <input class="hidden-game-answer2" id="hidden-game-answer2" type="text" required>
+                <input class="hidden-game-answer3" id="hidden-game-answer3" type="text" required>
+                <input class="hidden-game-answer4" id="hidden-game-answer4" type="text" required>
+                <input class="hidden-game-answer5" id="hidden-game-answer5" type="text" required>
+                <input class="hidden-game-answer6" id="hidden-game-answer6" type="text" required>
+            </div>
+            <button class="button" id="accept-hidden-words-game-answer">Solved!</button>
+        </div>
+        <div class="countries-game hidden" id="countries-game">
+            <p>Select a country that is superfluous in this list:</p>
+            <div class="countries-game-div" id="countries-game-div"></div>                
+            <button class="button" id="accept-countries-game-answer">Solved!</button>
+        </div>
+        <div class="animals-game hidden" id="animals-game">
+            <p>Write down which animal it is:</p>
+            <div class="animal-div" id="animal-div"></div>                             
+            <input id="animals-game-answer" type="text" placeholder="Answer" required>
+            <button class="button" id="accept-animals-game-answer">Solved!</button>
+        </div>
+        <div class="reverse-math-game hidden" id='reverse-math-game'>
+            <p>Write down operator, which was used:</p>
+            <div class="expression">
+                <div class="reverse-operand" id="reverse-first-operand"></div>
+                <input id="reverse-operator" type="text" maxlength="1" required>            
+                <div class="reverse-operand" id="reverse-second-operand"></div>
+                <div class="reverse-operator">=</div>
+                <div class="reverse-answer" id="reverse-math-game-answer"></div>
+            </div>                        
+            <button class="button" id="accept-reverse-math-game-answer">Solved!</button>       
+        </div>
+    </div>
+    <div class="correct-answer hidden" id="correct-answer">
+        <p>Your answer is correct! :)</p>
+    </div>
+    <div class="wrong-answer hidden" id="wrong-answer">
+        <p>Your answer is wrong! :(</p>
+    </div>
+    <div class="loose-screen hidden" id="loose-screen">
+        <p>Your robot is died :(</p>
+        <p id="final-score"></p>
+        <button class="button" id="new-game">New game</button>
+    </div>
+    <div class="win-screen hidden" id="win-screen">
+        <p>You defeated this zombie!</p>
+        <p>Fight with the next!</p>        
+    </div>
+    <div class="spell-field-wrapper hidden" id="spell-field">
+        <div class="spell-field">
+            <p>Choose type of task to attack zombie:</p>
+            <div class="attacks-wrapper">
+                <div class="melee-attacks">
+                    <p>Melee attack:</p>
+                    <div class="math-game-button" id="math-game-button">Math</div>
+                    <div class="lingua-game-button" id="lingua-game-button">Lingua</div>
+                    <div class="chem-game-button" id="chem-game-button">Chemistry</div>                    
+                    <div class="capitals-game-button" id="capitals-game-button">Capitals</div>
+                    <div class="hidden-game-button" id="hidden-game-button">Hidden Words</div>
+                    <div class="reverse-math-game-button" id="reverse-math-game-button">Reverse Math</div>
+                </div>
+                <div class="hard-attacks">
+                    <p>Range attack:</p>
+                    <div class="drag-game-button" id="drag-game-button">Drag&Drop</div>
+                    <div class="listening-game-button" id="listening-game-button">Listening</div>
+                    <div class="irr-verbs-game-button" id="irr-verbs-game-button">Irr. verbs</div>
+                    <div class="flags-game-button" id="flags-game-button">Flags</div>
+                    <div class="countries-game-button" id="countries-game-button">Countries</div>
+                    <div class="animals-game-button" id="animals-game-button">Animals</div>
+                </div>
+            </div>            
+        </div>        
+    </div>
+    <div class="records-table hidden" id="records-table-field">
+        <p>Records:</p>
+        <table id="records-table">
+        </table>
+        <button class="button" id="hide-records-button">Back</button>
+    </div>
+</body>
+</html>

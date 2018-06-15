@@ -1,0 +1,1173 @@
+body {
+    font-family: "Lato";
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #0d1516 url('img/html_img/background.png') no-repeat;
+    background-size: 100%;
+}
+
+input, button {
+    outline:none;
+}
+
+.loading-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.loading-screen p {
+    margin-left: 50px;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.spinner-wrap{
+    min-height:100px;
+    width:100%;
+    position:relative
+}
+
+@keyframes a{
+    0%{
+      transform:rotate(0deg)
+    }
+    to{
+      transform:rotate(1turn)
+    }
+}
+
+.spinner-ring{
+    content:"";
+    display:inline-block;
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:50%;
+    margin-top:-25px;
+    left:50%;
+    margin-left:-25px;
+    z-index:1;
+    border-radius:50%;
+    border:5px solid #ffffff;
+    border-left-color:transparent;
+    background:transparent;
+    -webkit-animation:a 1s infinite linear;
+    animation:a 1s infinite linear
+}
+
+.main-menu {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.main-menu img:last-child {
+    position: relative;
+    right: 70px;
+}
+
+.menu {
+    position: relative;
+    right: 70px;
+    width: 450px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Eater';
+    font-size: 100px;
+    color: rgb(190, 8, 8);
+    text-shadow: 0 0 30px black;    
+    width: 450px;
+    text-align: center;
+}
+
+.menu p {
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Lato";
+    font-weight: 600;
+    color: rgb(126, 15, 15);
+    font-size: 32px;
+    text-shadow: 0 0 4px rgb(255, 255, 255);
+}
+
+.menu input {
+    font-size: 36px;
+    width: 300px;
+    height: 60px;
+    border: 4px solid #693a29;
+    border-radius: 15px;
+}
+
+
+
+.game-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-game-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu-button {
+    margin: 100px 0 0 50px;
+    position: relative;
+    transition: .8s;
+    min-width: 150px;
+    width: 150px;
+    height: 150px;
+}
+
+.menu-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.records-button {
+    margin: 100px 50px 0 0;
+    position: relative;
+    transition: .8s;
+    min-width: 150px;
+    width: 150px;
+    height: 150px;
+}
+
+.records-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-button:hover {
+    transform: rotate(-30deg);
+    cursor: pointer;
+    
+}
+
+.records-button:hover {
+    transform: rotate(30deg);
+    cursor: pointer;
+}
+
+.menu-button:hover::after {
+    content: "Stop this game and go to start menu";
+    font-size: 24px;
+    text-align: center;
+    width: 140px;
+    height: 100px;
+    position: absolute;
+    color: white;
+    border: 10px solid #693a29;
+    background-color: #396c75;
+    transform: rotate(30deg);
+    left: 150px;
+    top: 40px;
+}
+
+.button {
+    font-size: 24px;
+    width: 140px;
+    height: 60px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 4px solid #693a29;
+}
+
+.records-button:hover::before {
+    content: "Show records table";
+    font-size: 24px;
+    text-align: center;
+    width: 140px;
+    height: 100px;
+    position: absolute;    
+    color: white;
+    border: 10px solid #693a29;
+    background-color: #396c75;
+    transform: rotate(-30deg);
+    right: 150px;
+    top: 40px;
+}
+
+.attack-button {
+    margin-top: 20px;
+    align-self: center;
+    cursor: pointer;
+    transition: .5s;
+    width: 150px;
+    height: 150px;
+}
+
+.attack-button img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.attack-button:hover {
+    transform: scale(1.2, 1.2);
+}
+
+canvas {
+    display: block;
+    width: 1000px;
+    height: 550px;
+    border: 10px solid #693a29;
+}
+
+.correct-answer {
+    background-color: rgba(32, 160, 38, 0.548);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.correct-answer p {
+    color: white;
+    text-shadow: 4px 4px 30px black;
+    font-size: 150px;
+}
+
+.wrong-answer {
+    background-color: rgba(160, 32, 32, 0.548);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrong-answer p {
+    color: white;
+    text-shadow: 4px 4px 30px black;
+    font-size: 150px;
+}
+
+.win-screen {
+    background-color: rgba(32, 160, 38, 0.548);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.win-screen p {
+    color: white;
+    text-shadow: 4px 4px 30px black;
+    font-size: 150px;
+}
+
+.loose-screen {
+    background-color: rgba(160, 32, 32, 0.548);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loose-screen p {
+    color: white;
+    text-shadow: 4px 4px 30px black;
+    font-size: 150px;
+}
+
+
+.mini-game-field {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(155, 153, 153, 0.548);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spell-field {
+    display: flex;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #ffffffdc;
+    width: 900px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.spell-field > p {
+    font-size: 30px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.attacks-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spell-field-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(155, 153, 153, 0.548);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.melee-attacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hard-attacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.attacks-wrapper > div div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 60px;
+    background-color: rgb(85, 214, 214);
+    margin: 20px;
+    text-align: center;
+    font-size: 26px;
+    position: relative;
+    cursor: pointer;
+    border: 4px solid #693a29;
+}
+
+.melee-attacks p {
+    margin: 10px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+
+.hard-attacks p {
+    margin: 10px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+
+.math-game-button:hover::after {
+    content: "The math game with simple operations";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+
+.chem-game-button:hover::after {
+    content: "The chemistry game, where you need to choose correct formula of compound";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+
+.capitals-game-button:hover::after {
+    content: "The capitals game, where you need to write the capital of given country";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+
+.lingua-game-button:hover::after {
+    content: "The lingua game, where you need to translate from English to Russian";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+
+.reverse-math-game-button:hover::after {
+    content: "The math game, where you need to write correct operator in an expression";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+.hidden-game-button:hover::after {
+    content: "Puzzle, where you need to find all hidden words";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    left: 146px;
+    bottom: -4px;
+}
+
+.drag-game-button:hover::after {
+    content: "The drag-and-drop game, where you need to restore the order of letters";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.listening-game-button:hover::after {
+    content: "The listening game, where you need to write a word after listening to this word";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.irr-verbs-game-button:hover::after {
+    content: "The irregular verbs game, where you must to write the missing form of a verb";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.flags-game-button:hover::after {
+    content: "The flags game, where you need to choose the flag of given country";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.countries-game-button:hover::after {
+    content: "The countries game, where you need to choose the superfluous country";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.animals-game-button:hover::after {
+    content: "The animals game, where you need to write what animal in the picture";
+    box-sizing: border-box;
+    font-size: 26px;
+    text-align: center;
+    width: 500px;
+    height: 68px;
+    position: absolute;    
+    color: white;
+    border: 4px solid #693a29;
+    background-color: #396c75e1;
+    right: 146px;
+    bottom: -4px;
+}
+
+.math-game {    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.math-game div { 
+    font-size: 40px;
+    text-align: center;
+    width: 80px;
+    height: 70px;    
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.math-game .operand {
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+
+.math-game .operator {
+    border: none;
+}
+
+.math-game input {    
+    font-size: 40px;
+    width: 140px;
+    height: 70px;
+    margin: 10px;
+}
+
+.lingua-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.word {    
+    font-size: 30px;
+    text-align: center;
+    height: 40px;    
+    margin: 10px;
+    width: 200px;
+    position: relative;
+}
+
+.word::before {
+    content: "Word:";
+    font-size: 30px;
+    position: absolute;    
+    right: 110%;
+}
+
+.word-translate {
+    position: relative;
+}
+
+.word-translate::before {
+    content: "Translate:";
+    font-size: 30px;
+    position: absolute;
+    top: 20%;    
+    right: 110%;
+}
+
+.lingua-game p {    
+    font-size: 30px;
+    text-align: center;
+    height: 40px;    
+    margin: 10px;
+}
+
+.word-translate input {
+    font-size: 30px;
+    height: 40px;
+    position: relative;
+    margin: 10px;
+}
+
+.mixed-word {
+    display: flex;
+    border: none;
+}
+
+.correct-word {
+    display: flex;
+    border: none;
+}
+
+.drag-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.drag-game p {
+    width: 80%;
+    font-size: 24px;
+    text-align: center;
+}
+
+.dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #693a29;;
+    border-right: none;
+}
+
+.dropzone:last-child {
+    border-right: 2px solid #693a29;;
+}
+
+.dropzone > div {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+}
+
+.listening-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.listening-game p {
+    width: 80%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.listening-game input {
+    font-size: 30px;
+    height: 40px;
+}
+
+.chem-game {    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.chem-game p {
+    font-size: 34px;
+}
+
+.chem-compound {
+    font-size: 32px;
+    border-bottom: 2px solid #396c75;
+}
+
+.chem-formulas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+}
+
+.checked-formula {
+    box-shadow: 0 0 10px 10px rgb(32, 160, 38);
+}
+
+.chem-formulas div {
+    width: 150px;
+    height: 50px;
+    border: 4px solid #693a29;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    background-color: antiquewhite;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+sub {
+    font-size: 18px;
+}
+
+.irr-verbs-game {    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.irr-verbs-game p {
+    font-size: 34px;
+}
+
+.verbs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.verbs div, .verbs input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    border: 4px solid #693a29;
+    margin: 10px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.flags-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 550px;
+}
+
+.flags-game p {
+    font-size: 28px;
+}
+
+.flag-name {
+    font-size: 32px;
+    border-bottom: 2px solid #396c75;
+}
+
+.flags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+
+.flags div {
+    width: 130px;
+    height: 130px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.checked-flag {
+    box-shadow: 0 0 10px 10px rgb(32, 160, 38);
+}
+
+.flags img {
+    width: 100%;
+    height: 100%;
+}
+
+.capitals-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 550px;
+}
+
+.capitals-game input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    border: 2px solid #693a29;
+    margin: 10px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.capitals-game p {
+    font-size: 36px;
+}
+
+.capitals-country {
+    font-size: 36px;
+    border-bottom: 2px solid #396c75;
+}
+
+.hidden-words-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 750px;
+}
+
+.hidden-words-img {
+    width: 600px;
+    height: 518px;
+}
+
+.hidden-words-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden-words-game p {
+    font-size: 30px;
+}
+
+.hidden-words-answers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.hidden-words-answers input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 30px;
+    border: 2px solid #693a29;
+    margin: 5px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.countries-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.countries-game p {
+    font-size: 30px;
+}
+
+.countries-game-div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.countries-game-div div {
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    border: 4px solid #693a29;
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checked-country {    
+    box-shadow: 0 0 10px 10px rgb(32, 160, 38);
+}
+
+.animals-game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 650px;
+}
+
+.animals-game p {
+    font-size: 30px;
+}
+
+.animals-game div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+}
+
+.animals-game input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 30px;
+    border: 2px solid #693a29;
+    margin: 5px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.reverse-math-game {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 10px solid #693a29;
+    background-color: #fffffff1;
+    width: 900px;
+    height: 450px;
+}
+
+.reverse-math-game p {
+    font-size: 30px;
+}
+
+.expression {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.reverse-operand { 
+    font-size: 40px;
+    text-align: center;
+    width: 80px;
+    height: 70px;    
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+
+.reverse-operator {
+    border: none;
+    font-size: 40px;
+}
+
+.reverse-math-game input {    
+    font-size: 40px;
+    width: 80px;
+    height: 70px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reverse-answer {
+    background-color: aquamarine;
+    border: 2px solid black;
+    width: 140px;
+    height: 70px;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.records-table {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(155, 153, 153, 0.548);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.records-table p {
+    font-family: "Eater";
+    font-size: 50px;
+    margin-bottom: 50px;
+    padding: 10px;
+    color: rgb(190, 8, 8);
+    text-shadow: 0 0 2px rgb(5, 5, 5); 
+    background: rgba(255, 255, 255, 0.9);    
+    text-align: center;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.9);
+
+}
+
+.records-table table {
+    font-size: 24px;    
+    width: 600px;
+    border-radius: 40px;
+}
+
+.records-table tr {
+    height: 30px;        
+}
+
+.records-table th {
+    text-align: left; 
+    padding: 10px;
+    font-weight: 600;   
+}
+
+.records-table th:first-child {
+      width: 70%;
+}
+
+.records-table td {
+    padding: 8px;   
+}
+
+.records-table button {
+    margin-top: 50px;
+    background-color: #ffffff; 
+}
+
+.records-table table, th, td {
+    border: 5px solid #693a29;
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 199, 167, 0.9);
+}
+
+table tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.sound-manage {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.sound-manage div {
+    margin: 10px 20px;
+    cursor: pointer;
+}
+
+.music-button {
+    width: 80px;
+    height: 80px;
+    background: url('img/html_img/sound-buttons.png') right -87px top 0px no-repeat;
+}
+
+.sound-button {
+    width: 80px;
+    height: 80px;
+    background: url('img/html_img/sound-buttons.png') right -87px top -87px no-repeat;
+}
+
+.disabled-sound-button {
+    background: url('img/html_img/sound-buttons.png') right 0px top -87px no-repeat;
+}
+
+.disabled-music-button {
+    background: url('img/html_img/sound-buttons.png') right 0px top 0px no-repeat;
+}
+
+.hidden {
+    display: none;
+}
+
