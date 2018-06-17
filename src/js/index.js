@@ -48,22 +48,5 @@ resources.init().then( () => {
     menu.hideLoadingScreen();
 });
 
-// -----------TEST BUTTOS--------------------
-
-// const btn2 = document.getElementById('enemy-test-kill');
-// const btn3 = document.getElementById('robot-test-kill');
-// const spellField = document.getElementById('spell-field');
-
-// btn2.addEventListener('click', () => {
-//     state.robotMeleeAttack(animation);
-//     spellField.classList.add('hidden');    
-// })
-
-// btn3.addEventListener('click', () => {
-//     state.enemyAttack(animation);
-//     spellField.classList.add('hidden');
-// })
-
-
 
 
