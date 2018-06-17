@@ -89,32 +89,21 @@ export default class Animation {
     drawEnemy(resources, state) {
         if (state.enemy.action === 'idle') {
             this.ctx.drawImage(resources.zombie.idle.legs, this.enemy.idle[this.frame],  0, 430, 519, 1000, 450, 430, 519);
-        } else if (state.enemy.action === 'melee'){
-            this.ctx.drawImage(resources.zombie.attack.legs, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
-        } else if (state.enemy.action === 'dead') {
-            this.ctx.drawImage(resources.zombie.dead.legs, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
-        }
-        if (state.enemy.action === 'idle') {
             this.ctx.drawImage(resources.zombie.idle.body, this.enemy.idle[this.frame],  0, 430, 519, 1000, 450, 430, 519);
-        } else if (state.enemy.action === 'melee'){
-            this.ctx.drawImage(resources.zombie.attack.body, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
-        } else if (state.enemy.action === 'dead') {
-            this.ctx.drawImage(resources.zombie.dead.body, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
-        }
-        if (state.enemy.action === 'idle') {
             this.ctx.drawImage(resources.zombie.idle.head, this.enemy.idle[this.frame],  0, 430, 519, 1000, 450, 430, 519);
-        } else if (state.enemy.action === 'melee'){
-            this.ctx.drawImage(resources.zombie.attack.head, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
-        } else if (state.enemy.action === 'dead') {
-            this.ctx.drawImage(resources.zombie.dead.head, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
-        }
-        if (state.enemy.action === 'idle') {
             this.ctx.drawImage(resources.zombie.idle.weapon, this.enemy.idle[this.frame],  0, 430, 519, 1000, 450, 430, 519);
         } else if (state.enemy.action === 'melee'){
+            this.ctx.drawImage(resources.zombie.attack.legs, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
+            this.ctx.drawImage(resources.zombie.attack.body, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
+            this.ctx.drawImage(resources.zombie.attack.head, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
             this.ctx.drawImage(resources.zombie.attack.weapon, this.enemy.melee[this.frame], 0, 430, 519, this.enemy.meleeRun[this.frame], 450, 430, 519);
         } else if (state.enemy.action === 'dead') {
+            this.ctx.drawImage(resources.zombie.dead.legs, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
+            this.ctx.drawImage(resources.zombie.dead.body, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
+            this.ctx.drawImage(resources.zombie.dead.head, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
             this.ctx.drawImage(resources.zombie.dead.weapon, this.enemy.dead[this.frame], 0, 629, 529, 800, 450, 629, 526);
         }
+        
         this.ctx.font = "50px Arial";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(state.enemy.name, 1400,100);
